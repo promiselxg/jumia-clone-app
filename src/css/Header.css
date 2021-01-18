@@ -73,6 +73,7 @@
   align-items: center;
   margin-right: 5px;
   margin-left: 5px;
+  margin-top: 2px;
 }
 .header__rightLinks:hover {
   color: #f6881e;

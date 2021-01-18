@@ -1,0 +1,38 @@
+.app__body {
+  display: flex;
+  margin-top: 15px;
+  justify-content: space-between;
+}
+.sidebar {
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: 20px;
+  background-color: #fff;
+  padding: 20px;
+  flex: 0.3;
+}
+.app__slide {
+  display: flex;
+  flex: 0.7;
+  margin-right: auto;
+}
+.sidebarOptions {
+  display: flex;
+  align-items: center;
+  font-size: 12px !important;
+  cursor: pointer;
+  transition: color 300ms ease-out;
+}
+.sidebarOptions:hover {
+  color: #f6881e;
+}
+.sidebarOptions > h3 {
+  font-weight: 500;
+  padding: 5px;
+}
+.sidebarOption__icon {
+  font-size: 15px !important;
+  align-items: center;
+
+  margin-right: 5px;
+}
