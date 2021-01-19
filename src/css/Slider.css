@@ -6,18 +6,26 @@
 
 .slider {
   display: flex;
-  height: 45vh;
+  height: 433px;
 }
 
 .slider__container > img {
-  height: 46.5vh;
-  object-fit: contain;
+  margin-top: 0px;
+  height: 433px;
   width: 100% !important;
 }
-.app__right {
+.rightbar__bottom {
   display: flex;
-  flex: 0.15;
-  background: red;
+  margin-top: 30px;
+  height: 240px;
+  overflow: hidden;
+  margin-left: auto;
   margin-right: auto;
+}
+.rightbar__bottom > img {
+  object-fit: contain;
+  height: 95%;
+  width: 100%;
   margin-right: auto;
+  margin-left: auto;
 }

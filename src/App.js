@@ -2,6 +2,9 @@ import './App.css'
 import Header from './components/Header'
 import SideBar from './components/SideBar'
 import Slider from './components/Slider'
+import RightBar from './components/RightBar'
+
+import Offers from './components/Offers'
 
 function App() {
   return (
@@ -13,8 +16,14 @@ function App() {
           <Slider />
         </div>
         <div className='app__right'>
-          <h3>Right</h3>
+          <RightBar />
         </div>
+      </div>
+      <div className='app__offer'>
+        <Offers />
+        <Offers />
+        <Offers />
+        <Offers />
       </div>
     </div>
   )

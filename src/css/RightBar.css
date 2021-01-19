@@ -1,0 +1,82 @@
+.app__right {
+  display: flex;
+  flex: 0.15;
+  height: 430px;
+  overflow: hidden;
+  margin-right: auto;
+  margin-right: auto;
+}
+.rightbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.rightbar__top {
+  display: flex;
+  width: 95%;
+  flex-direction: column;
+  height: 215px;
+  background-color: #fff;
+  padding: 10px;
+}
+.rightbar__bottom {
+  height: 215px;
+}
+.rightbar__bottom > img {
+  width: 100%;
+  object-fit: contain;
+  height: 195px;
+}
+.rightbar__topContent {
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: color 300ms ease-out;
+}
+.rightbar__topContent:hover .rightbar__text h2 {
+  color: #f6881e !important;
+}
+.rightbar__topContent:hover .rightbar__text p {
+  color: #f6881e !important;
+}
+.rightbar__image > img {
+  object-fit: contain;
+  height: 30px;
+  margin-right: 10px;
+  align-items: center;
+}
+.rightbar__text {
+  display: flex;
+  flex-direction: column;
+}
+.rightbar__text > h2 {
+  color: #3d3434 !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  align-items: center;
+  transition: color 300ms ease-out;
+}
+.rightbar__text p {
+  font-size: 12px;
+  margin-top: -5px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  align-items: flex-end;
+  color: #3d3434;
+  transition: color 300ms ease-out;
+}
+
+@media screen and (min-width: 800px) {
+  .rightbar__bottom > img {
+    width: 100%;
+    object-fit: contain;
+    height: 215px;
+    margin-left: -10px;
+  }
+  .rightbar__top {
+    width: 85%;
+  }
+}

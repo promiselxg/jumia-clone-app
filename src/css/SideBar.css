@@ -7,8 +7,9 @@
   max-width: 200px;
   margin-left: auto;
   margin-right: 20px;
+  height: 415px;
   background-color: #fff;
-  padding: 20px;
+  padding: 10px;
   flex: 0.2;
 }
 .sidebarOptions {

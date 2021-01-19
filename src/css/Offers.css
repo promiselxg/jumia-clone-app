@@ -1,0 +1,48 @@
+.app__offer {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.offers {
+  display: flex;
+}
+.offer__options {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 250px;
+  background-color: #fff;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.offer__options > img {
+  object-fit: contain;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
+.offer__options > h2 {
+  font-size: 18px;
+  color: #252525;
+  text-transform: capitalize;
+  opacity: 0.6;
+  transition: opacity 300ms ease-out;
+}
+.offer__options:hover > h2 {
+  opacity: 1;
+}
+@media screen and (min-width: 800px) {
+  .app__offer {
+    width: 71%;
+  }
+  .offer__options {
+    width: 300px;
+  }
+  .offer__options:last-child {
+    margin-right: 20px;
+  }
+}
