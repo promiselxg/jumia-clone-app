@@ -9,22 +9,25 @@
 }
 .header__left {
   display: flex;
-  flex: 0.3;
+  flex: 0.12;
+  margin-left: auto;
   align-items: center;
 }
 .header__leftLogoBox {
   margin-left: auto;
-  margin-right: auto;
 }
 .header__leftLogoBox > img {
   object-fit: contain;
   height: 90px !important;
   cursor: pointer;
   margin-top: 8px;
+  display: flex;
+  margin-right: 40px;
 }
 .header__center {
   display: flex;
-  flex: 0.5;
+  flex: 0.48;
+  margin-left: 10px;
   text-align: center;
 }
 .header__centerIcon {
@@ -51,14 +54,14 @@
 }
 .header__right {
   display: flex;
-  flex: 0.3;
-  align-items: flex-end;
+  flex: 0.11;
+  margin-right: auto;
 }
 .header__rightLinks {
   display: flex;
   justify-content: space-evenly;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   color: #282828;
   cursor: pointer;
   transition: color 300ms ease-out;

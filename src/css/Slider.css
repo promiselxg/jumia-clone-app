@@ -1,0 +1,23 @@
+.app__slide {
+  display: flex;
+  flex: 0.44;
+  margin-right: 20px;
+}
+
+.slider {
+  display: flex;
+  height: 45vh;
+}
+
+.slider__container > img {
+  height: 46.5vh;
+  object-fit: contain;
+  width: 100% !important;
+}
+.app__right {
+  display: flex;
+  flex: 0.15;
+  background: red;
+  margin-right: auto;
+  margin-right: auto;
+}
