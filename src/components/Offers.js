@@ -1,14 +1,13 @@
 import React from 'react'
 import '../css/Offers.css'
-import iconRed from '../images/Icon-red.png'
 
-const Offers = () => {
+const Offers = ({ Icon, text }) => {
   return (
     <>
       <div className='offers'>
         <div className='offer__options'>
-          <img src={iconRed} alt='' />
-          <h2>Official Stores</h2>
+          <img src={Icon} alt='' />
+          <h2>{text}</h2>
         </div>
       </div>
     </>

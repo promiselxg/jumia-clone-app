@@ -3,8 +3,8 @@ import Header from './components/Header'
 import SideBar from './components/SideBar'
 import Slider from './components/Slider'
 import RightBar from './components/RightBar'
-
-import Offers from './components/Offers'
+import AppOffers from './components/AppOffers'
+import Topselling from './components/Topselling'
 
 function App() {
   return (
@@ -20,10 +20,11 @@ function App() {
         </div>
       </div>
       <div className='app__offer'>
-        <Offers />
-        <Offers />
-        <Offers />
-        <Offers />
+        <AppOffers />
+      </div>
+
+      <div className='app__topSelling'>
+        <Topselling />
       </div>
     </div>
   )
