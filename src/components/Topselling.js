@@ -7,13 +7,33 @@ import pr3 from '../product_images/3.jpg'
 import pr4 from '../product_images/4.jpg'
 import pr5 from '../product_images/5.jpg'
 import pr6 from '../product_images/6.jpg'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
-const Topselling = () => {
+const Topselling = ({ text, color }) => {
   return (
     <>
       <div className='topselling'>
         <div className='topselling__title'>
-          <h1>Top Selling items</h1>
+          {text ? (
+            <div
+              style={{
+                backgroundColor: `${color}`,
+                width: '100%',
+                padding: '10px',
+                borderRadius: '5px 5px 0px 0px',
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}
+              className='topselling__background'
+            >
+              <h1>{text}</h1>
+              <h1>
+                See All <ChevronRightIcon />
+              </h1>
+            </div>
+          ) : (
+            <h1>Top Selling items</h1>
+          )}
         </div>
         <div className='topselling__body'>
           <Products

@@ -5,6 +5,7 @@ import Slider from './components/Slider'
 import RightBar from './components/RightBar'
 import AppOffers from './components/AppOffers'
 import Topselling from './components/Topselling'
+import Collections from './components/Collections'
 
 function App() {
   return (
@@ -23,8 +24,20 @@ function App() {
         <AppOffers />
       </div>
 
-      <div className='app__topSelling'>
+      <div className='app__products'>
         <Topselling />
+      </div>
+      <div className='app__products'>
+        <Topselling text='Deals of the Day | From ₦1,000' color='red' />
+      </div>
+      <div className='app__products'>
+        <Topselling
+          text='A Trail of Sweet Scents | Up to 60% Off'
+          color='blue'
+        />
+      </div>
+      <div className='app__collections'>
+        <Collections />
       </div>
     </div>
   )

@@ -5,7 +5,7 @@ import NumberFormat from 'react-number-format'
 const Products = ({ image, name, price, newPrice }) => {
   return (
     <>
-      <div className='topselling__product'>
+      <div className='product'>
         <div className='product__image'>
           <img src={image} alt={name} />
         </div>
