@@ -1,8 +1,5 @@
 import React from 'react'
-import HelpCenter from '../images/help-centerv4.png'
-import SellOnJumia from '../images/sell-on-jumia.png'
-import ReturnRefunds from '../images/returns-refunds.png'
-import RightBarAnimation from '../images/bsb_new.gif'
+
 import RightBarOptions from './RightBarOptions'
 
 const RightBar = () => {
@@ -10,23 +7,26 @@ const RightBar = () => {
     <div className='rightbar'>
       <div className='rightbar__top'>
         <RightBarOptions
-          Icon={HelpCenter}
+          Icon='https://ng.jumia.is/cms/Homepage/2020/W38/help-centerv4.png'
           text='Help Center'
           desc='Guide to Customer Care'
         />
         <RightBarOptions
-          Icon={ReturnRefunds}
+          Icon='https://ng.jumia.is/cms/Homepage/2020/W38/returns-refunds.png'
           text='Easy return'
           desc='Quick Refund'
         />
         <RightBarOptions
-          Icon={SellOnJumia}
+          Icon='https://ng.jumia.is/cms/Homepage/2020/W38/sell-on-jumia.png'
           text='Sell on Jumia'
           desc='Millions of Visitors'
         />
       </div>
       <div className='rightbar__bottom'>
-        <img src={RightBarAnimation} alt='' />
+        <img
+          src='https://ng.jumia.is//cms/0-1-weekly-cps/2021/w3/bsb_new.gif'
+          alt=''
+        />
       </div>
     </div>
   )

@@ -1,12 +1,6 @@
 import React from 'react'
 import '../css/Topselling.css'
 import Products from './products/Products'
-import pr1 from '../product_images/1.jpg'
-import pr2 from '../product_images/2.jpg'
-import pr3 from '../product_images/3.jpg'
-import pr4 from '../product_images/4.jpg'
-import pr5 from '../product_images/5.jpg'
-import pr6 from '../product_images/6.jpg'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 const Topselling = ({ text, color }) => {
@@ -37,37 +31,37 @@ const Topselling = ({ text, color }) => {
         </div>
         <div className='topselling__body'>
           <Products
-            image={pr1}
+            image='https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/042456/1.jpg?2575'
             name='umidigi A75 infrared telephone'
             price='63690'
             newPrice='37900'
           />
           <Products
-            image={pr2}
+            image='https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/79/781166/1.jpg?7012'
             name='cubot not 7.5.5 inches phone'
             price='41000'
             newPrice='33000'
           />
           <Products
-            image={pr3}
+            image='https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/48/762026/1.jpg?7716'
             name='Mens flexible casual sportwear'
             price='5000'
             newPrice='3500'
           />
           <Products
-            image={pr4}
+            image='https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/973734/1.jpg?4289'
             name='color screen smart bracelet'
             price='3590'
             newPrice='2150'
           />
           <Products
-            image={pr5}
+            image='https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/83/388841/1.jpg?8433'
             name='fingerprint touch bluetooth earpice'
             price=''
             newPrice='2000'
           />
           <Products
-            image={pr6}
+            image='https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/35/875405/1.jpg?8033'
             name='f9-30 wireless headphone'
             price='3210'
             newPrice='2900'
