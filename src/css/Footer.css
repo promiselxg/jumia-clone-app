@@ -1,0 +1,7 @@
+.app__footer {
+  background-color: #282828;
+  display: flex;
+  /*#323232*/
+  color: #fff;
+  padding: 20px;
+}

@@ -1,5 +1,5 @@
-import React from 'react'
-import ProductCollections from '../components/products/ProductCollections'
+import React from "react";
+import ProductCollections from "../components/products/ProductCollections";
 const Collections = ({ text }) => {
   return (
     <>
@@ -61,7 +61,7 @@ const Collections = ({ text }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Collections
+export default Collections;

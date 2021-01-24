@@ -1,19 +1,27 @@
-import React from 'react'
-import Offers from './Offers'
-import iconRed from '../images/Icon-red.png'
-import airtime from '../images/airtime.png'
-import JumiaFood from '../images/jumia-food-new.png'
-import JumiaGlobal from '../images/JumiaGlobal.png'
+import React from "react";
+import Offers from "./Offers";
 
 const AppOffers = () => {
-    return (
-        <>
-        <Offers Icon={iconRed} text='Official Stores' />
-        <Offers Icon={JumiaGlobal} text='Jumia Global' />
-        <Offers Icon={JumiaFood}  text='Jumia Food' />
-        <Offers Icon={airtime} text='Airtime &amp; Bills' />
-        </>
-    )
-}
+  return (
+    <>
+      <Offers
+        Icon='https://ng.jumia.is/cms/Homepage/2021/w03/Icon-red-(2).png'
+        text='Official Stores'
+      />
+      <Offers
+        Icon='https://ng.jumia.is/cms/Homepage/2021/w03/JumiaGlobal-(1).png'
+        text='Jumia Global'
+      />
+      <Offers
+        Icon='https://ng.jumia.is/cms/Homepage/2021/w03/jumia-food-new-(1).png'
+        text='Jumia Food'
+      />
+      <Offers
+        Icon='https://ng.jumia.is/cms/Homepage/2021/w03/unnamed.png'
+        text='Airtime &amp; Bills'
+      />
+    </>
+  );
+};
 
-export default AppOffers
+export default AppOffers;

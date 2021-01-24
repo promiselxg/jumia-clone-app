@@ -1,8 +1,8 @@
 import React from "react";
 import "../css/Topselling.css";
-import Products from "./products/Products";
+import Products from "../components/products/Products";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { products } from "../Data/Products";
+import { TopSellingProducts } from "../Data/Products";
 
 const Topselling = ({ text, color }) => {
   return (
@@ -31,8 +31,9 @@ const Topselling = ({ text, color }) => {
           )}
         </div>
         <div className='topselling__body'>
-          {products.map((product) => (
+          {TopSellingProducts.map((product, index) => (
             <Products
+              key={index}
               image={product.image}
               name={product.name}
               price={product.price}

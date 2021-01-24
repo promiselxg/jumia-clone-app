@@ -1,10 +1,10 @@
 import React from "react";
 import "../css/Topselling.css";
-import Products from "./products/Products";
+import Products from "../components/products/Products";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { products } from "../Data/Products";
+import { scent } from "../Data/Products";
 
-const Topselling = ({ text, color }) => {
+const Perfumes = ({ text, color }) => {
   return (
     <>
       <div className='topselling'>
@@ -31,8 +31,9 @@ const Topselling = ({ text, color }) => {
           )}
         </div>
         <div className='topselling__body'>
-          {products.map((product) => (
+          {scent.map((product, index) => (
             <Products
+              key={index}
               image={product.image}
               name={product.name}
               price={product.price}
@@ -45,4 +46,4 @@ const Topselling = ({ text, color }) => {
   );
 };
 
-export default Topselling;
+export default Perfumes;

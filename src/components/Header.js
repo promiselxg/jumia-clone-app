@@ -1,21 +1,24 @@
-import React from 'react'
-import '../css/Header.css'
-import SearchIcon from '@material-ui/icons/Search'
-import PermIdentityIcon from '@material-ui/icons/PermIdentity'
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
-import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined'
-import Button from '@material-ui/core/Button'
+import React from "react";
+import "../css/Header.css";
+import SearchIcon from "@material-ui/icons/Search";
+import PermIdentityIcon from "@material-ui/icons/PermIdentity";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className='header'>
       <div className='header__left'>
         <div className='header__leftLogoBox'>
-          <img
-            src='https://www.cgiainstitute.org/wp-content/uploads/2019/04/Jumia-logo.jpg'
-            alt='humia logo'
-          />
+          <Link to='/'>
+            <img
+              src='https://www.cgiainstitute.org/wp-content/uploads/2019/04/Jumia-logo.jpg'
+              alt='humia logo'
+            />
+          </Link>
         </div>
       </div>
       <div className='header__center'>
@@ -29,32 +32,38 @@ const Header = () => {
         <Button
           variant='contained'
           style={{
-            backgroundColor: '#f6881E',
-            color: '#FFF',
-            fontWeight: '600',
+            backgroundColor: "#f6881E",
+            color: "#FFF",
+            fontWeight: "600",
           }}
         >
           Search
         </Button>
       </div>
       <div className='header__right'>
-        <div className='header__rightLinks'>
-          <PermIdentityIcon style={{ alignItem: 'center' }} />
-          <h2>Login</h2>
-          <ExpandMoreOutlinedIcon />
-        </div>
-        <div className='header__rightLinks'>
-          <HelpOutlineIcon />
-          <h2>Help</h2>
-          <ExpandMoreOutlinedIcon />
-        </div>
-        <div className='header__rightLinks'>
-          <ShoppingCartOutlinedIcon />
-          <h2>Cart</h2>
-        </div>
+        <Link to='/users/login'>
+          <div className='header__rightLinks'>
+            <PermIdentityIcon style={{ alignItem: "center" }} />
+            <h2>Login</h2>
+            <ExpandMoreOutlinedIcon />
+          </div>
+        </Link>
+        <Link to='/help'>
+          <div className='header__rightLinks'>
+            <HelpOutlineIcon />
+            <h2>Help</h2>
+            <ExpandMoreOutlinedIcon />
+          </div>
+        </Link>
+        <Link to='/cart'>
+          <div className='header__rightLinks'>
+            <ShoppingCartOutlinedIcon />
+            <h2>Cart</h2>
+          </div>
+        </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

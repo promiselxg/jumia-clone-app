@@ -19,7 +19,7 @@
 .header__leftLogoBox {
   margin-left: auto;
 }
-.header__leftLogoBox > img {
+.header__leftLogoBox img {
   object-fit: contain;
   height: 90px !important;
   cursor: pointer;
@@ -60,6 +60,9 @@
   flex: 0.11;
   margin-right: auto;
 }
+a {
+  text-decoration: none;
+}
 .header__rightLinks {
   display: flex;
   justify-content: space-evenly;
@@ -67,6 +70,7 @@
   margin-right: 5px;
   color: #282828;
   cursor: pointer;
+
   transition: color 300ms ease-out;
 }
 .header__rightLinks h2 {
