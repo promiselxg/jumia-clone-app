@@ -1,18 +1,26 @@
 .rightbar {
   display: flex;
   flex-direction: column;
-  flex: 0.15 !important;
-  max-width: 250px;
-  margin-left: 12px;
-  margin-right: -20px;
+  max-width: 200px;
+  flex: 0.25;
+  margin-right: 10px;
 }
 .rightbar__top {
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
   background-color: #fff;
-  padding: 20px;
+  padding: 31px 10px;
   border-radius: 5px;
+}
+.rightbar__top > .rightbar__topContent:nth-child(1) {
+  margin-top: -10px;
+}
+.rightbar__top > .rightbar__topContent:nth-child(2) {
+  padding-top: 10px;
+}
+.rightbar__top > .rightbar__topContent:nth-child(3) {
+  padding-top: 10px;
 }
 .rightbar__topContent {
   width: 100%;
@@ -31,7 +39,7 @@
 .rightbar__image > img {
   object-fit: contain;
   height: 30px;
-  margin-right: 10px;
+  margin-right: 5px;
   align-items: center;
 }
 .rightbar__text {
@@ -59,6 +67,7 @@
 }
 .rightbar__bottom > img {
   object-fit: contain;
-  height: 210px;
+  width: 100%;
+  height: auto;
   border-radius: 5px;
 }

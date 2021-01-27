@@ -1,0 +1,27 @@
+.offers {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.offersOption {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 300px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.offersOption > h2 {
+  font-weight: 500;
+  font-size: 20px;
+  color: #292929;
+  opacity: 0.7;
+  text-transform: capitalize;
+}
+.offersOption > img {
+  display: flex;
+  object-fit: contain;
+  height: 40px;
+  margin-right: 20px;
+}

@@ -5,7 +5,7 @@ const Slider = () => {
     <div className='slider'>
       <div className='slider__container'>
         <img
-          src='https://ng.jumia.is/cms/Homepage/2021/w03/JG_Discover.jpg'
+          src='https://ng.jumia.is/cms/0-CATEGORY-PAGES/Quick-Edits/JumiaFood_MealUnder1K.jpg'
           alt=''
         />
       </div>
