@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import RightBarOptions from './RightBarOptions'
+import RightBarOptions from "./RightBarOptions";
 
 const RightBar = () => {
   return (
@@ -29,7 +29,7 @@ const RightBar = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RightBar
+export default RightBar;

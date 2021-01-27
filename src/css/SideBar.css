@@ -1,30 +1,28 @@
-.app__body {
-  display: flex;
-  width: 100%;
-  margin-top: 15px;
-}
 .sidebar {
   max-width: 200px;
-  margin-left: auto;
-  margin-right: 20px;
-  height: 415px;
   background-color: #fff;
   padding: 10px;
+  display: flex;
   flex: 0.2;
+  height: 415px;
+  border-radius: 5px;
+  margin-right: 20px;
 }
 .sidebarOptions {
   display: flex;
   align-items: center;
-  font-size: 12px !important;
+  font-size: 13px !important;
   cursor: pointer;
+  color: #282828;
   transition: color 300ms ease-out;
+  margin: 15px auto;
 }
 .sidebarOptions:hover {
   color: #f6881e;
 }
 .sidebarOptions > h3 {
   font-weight: 500;
-  padding: 5px;
+  font-size: small;
 }
 .sidebarOption__icon {
   font-size: 15px !important;

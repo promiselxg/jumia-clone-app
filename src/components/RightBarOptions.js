@@ -1,5 +1,5 @@
-import React from 'react'
-import '../css/RightBar.css'
+import React from "react";
+import "../css/RightBar.css";
 const RightBarOptions = ({ Icon, text, desc }) => {
   return (
     <>
@@ -13,7 +13,7 @@ const RightBarOptions = ({ Icon, text, desc }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default RightBarOptions
+export default RightBarOptions;

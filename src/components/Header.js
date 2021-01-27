@@ -1,68 +1,69 @@
 import React from "react";
 import "../css/Header.css";
-import SearchIcon from "@material-ui/icons/Search";
-import PermIdentityIcon from "@material-ui/icons/PermIdentity";
-import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Container, Button } from "@material-ui/core";
+import {
+  Search,
+  PermIdentity,
+  HelpOutline,
+  ShoppingCartOutlined,
+  ExpandMoreOutlined,
+} from "@material-ui/icons";
 
 const Header = () => {
   return (
-    <div className='header'>
-      <div className='header__left'>
-        <div className='header__leftLogoBox'>
-          <Link to='/'>
-            <img
-              src='https://www.cgiainstitute.org/wp-content/uploads/2019/04/Jumia-logo.jpg'
-              alt='humia logo'
-            />
-          </Link>
-        </div>
-      </div>
-      <div className='header__center'>
-        <div className='header__centerSearch'>
-          <SearchIcon className='header__centerIcon' />
-          <input
-            type='text'
-            placeholder='Search products, brands and categories'
-          />
-        </div>
-        <Button
-          variant='contained'
-          style={{
-            backgroundColor: "#f6881E",
-            color: "#FFF",
-            fontWeight: "600",
-          }}
-        >
-          Search
-        </Button>
-      </div>
-      <div className='header__right'>
-        <Link to='/users/login'>
-          <div className='header__rightLinks'>
-            <PermIdentityIcon style={{ alignItem: "center" }} />
-            <h2>Login</h2>
-            <ExpandMoreOutlinedIcon />
+    <>
+      <div className='header'>
+        <Container>
+          <div className='header__container'>
+            <div className='header__left'>
+              <img
+                src='https://www.cgiainstitute.org/wp-content/uploads/2019/04/Jumia-logo.jpg'
+                alt='humia logo'
+              />
+            </div>
+            <div className='header__center'>
+              <div className='header__search'>
+                <Search />
+                <input
+                  type='text'
+                  placeholder='Search products, brands and categories'
+                />
+              </div>
+              <Button
+                variant='contained'
+                style={{
+                  backgroundColor: "#f6881E",
+                  color: "#FFF",
+                  fontWeight: "600",
+                  marginRight: "10px",
+                }}
+              >
+                Search
+              </Button>
+            </div>
+            <div className='header__right'>
+              <div className='header__rightIcons'>
+                <PermIdentity />
+                <h2>Login</h2>
+                <ExpandMoreOutlined />
+              </div>
+              <div className='header__rightIcons'>
+                {" "}
+                <HelpOutline />
+                <h2>Help</h2>
+                <ExpandMoreOutlined />
+              </div>
+
+              <div className='header__rightIcons'>
+                {" "}
+                <ShoppingCartOutlined />
+                <h2>Cart</h2>
+              </div>
+            </div>
           </div>
-        </Link>
-        <Link to='/help'>
-          <div className='header__rightLinks'>
-            <HelpOutlineIcon />
-            <h2>Help</h2>
-            <ExpandMoreOutlinedIcon />
-          </div>
-        </Link>
-        <Link to='/cart'>
-          <div className='header__rightLinks'>
-            <ShoppingCartOutlinedIcon />
-            <h2>Cart</h2>
-          </div>
-        </Link>
+        </Container>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,10 +1,6 @@
-* {
-  margin: 0px;
-}
 body {
-  font-family: 'Pragati Narrow', sans-serif;
+  margin: 0;
+  font-family: "Open Sans Condensed", sans-serif;
   font-size: 0.75rem;
   background-color: #ededed;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

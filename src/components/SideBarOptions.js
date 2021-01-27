@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const SideBarOption = ({ Icon, title }) => {
+const SideBarOptions = ({ Icon, title }) => {
   return (
     <div className='sidebarOptions'>
       {Icon && <Icon className='sidebarOption__icon' />}
@@ -12,7 +12,7 @@ const SideBarOption = ({ Icon, title }) => {
         </h3>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SideBarOption
+export default SideBarOptions;

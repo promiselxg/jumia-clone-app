@@ -31,13 +31,14 @@ const Topselling = ({ text, color }) => {
           )}
         </div>
         <div className='topselling__body'>
-          {TopSellingProducts.map((product, index) => (
+          {TopSellingProducts.map((product) => (
             <Products
-              key={index}
+              key={product._id}
               image={product.image}
               name={product.name}
               price={product.price}
               newPrice='37900'
+              id={product._id}
             />
           ))}
         </div>

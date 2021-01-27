@@ -31,13 +31,14 @@ const TodayDeals = ({ text, color }) => {
           )}
         </div>
         <div className='topselling__body'>
-          {DealsOfTheDay.map((product, index) => (
+          {DealsOfTheDay.map((product) => (
             <Products
-              key={index}
+              key={product._id}
               image={product.image}
               name={product.name}
               price={product.price}
               newPrice='37900'
+              id={product._id}
             />
           ))}
         </div>
