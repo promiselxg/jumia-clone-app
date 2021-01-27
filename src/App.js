@@ -5,6 +5,7 @@ import Offers from "./components/Offers";
 import RightBar from "./components/RightBar";
 import SideBar from "./components/SideBar";
 import Slider from "./components/Slider";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
       <Container className='app__container'>
         <Offers />
       </Container>
-      <Container className='app__container'></Container>
+      <Container className='app__container'>
+        <Products />
+      </Container>
     </div>
   );
 }
