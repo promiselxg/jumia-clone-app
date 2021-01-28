@@ -8,6 +8,7 @@ import {
   ShoppingCartOutlined,
   ExpandMoreOutlined,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -16,10 +17,12 @@ const Header = () => {
         <Container>
           <div className='header__container'>
             <div className='header__left'>
-              <img
-                src='https://www.cgiainstitute.org/wp-content/uploads/2019/04/Jumia-logo.jpg'
-                alt='humia logo'
-              />
+              <Link to='/'>
+                <img
+                  src='https://www.cgiainstitute.org/wp-content/uploads/2019/04/Jumia-logo.jpg'
+                  alt='humia logo'
+                />
+              </Link>
             </div>
             <div className='header__center'>
               <div className='header__search'>

@@ -87,7 +87,7 @@ const products = [
 
 const TopSellingProducts = [
   {
-    _id: 1,
+    _id: 7,
     name: "Airpods Wireless Bluetooth Headphones",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/042456/1.jpg?2575",
@@ -102,7 +102,7 @@ const TopSellingProducts = [
     numReviews: 0,
   },
   {
-    _id: 2,
+    _id: 8,
     name: "iPhone 11 Pro 256GB Memory",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/79/781166/1.jpg?7012",
@@ -116,7 +116,7 @@ const TopSellingProducts = [
     numReviews: 0,
   },
   {
-    _id: 3,
+    _id: 9,
     name: "Cannon EOS 80D DSLR Camera",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/48/762026/1.jpg?7716",
@@ -130,7 +130,7 @@ const TopSellingProducts = [
     numReviews: 0,
   },
   {
-    _id: 4,
+    _id: 10,
     name: "Sony Playstation 4 Pro White Version",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/973734/1.jpg?4289",
@@ -145,7 +145,7 @@ const TopSellingProducts = [
     numReviews: 0,
   },
   {
-    _id: 5,
+    _id: 11,
     name: "Logitech G-Series Gaming Mouse",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/83/388841/1.jpg?8433",
@@ -159,7 +159,7 @@ const TopSellingProducts = [
     numReviews: 0,
   },
   {
-    _id: 6,
+    _id: 12,
     name: "Amazon Echo Dot 3rd Generation",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/35/875405/1.jpg?8033",
@@ -175,7 +175,7 @@ const TopSellingProducts = [
 ];
 const DealsOfTheDay = [
   {
-    _id: 1,
+    _id: 13,
     name: "Airpods Wireless Bluetooth Headphones",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/82/002423/1.jpg?8562",
@@ -189,7 +189,7 @@ const DealsOfTheDay = [
     numReviews: 0,
   },
   {
-    _id: 2,
+    _id: 14,
     name: "iPhone 11 Pro 256GB Memory",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/76/242456/1.jpg?3299",
@@ -203,7 +203,7 @@ const DealsOfTheDay = [
     numReviews: 0,
   },
   {
-    _id: 3,
+    _id: 15,
     name: "Cannon EOS 80D DSLR Camera",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/81/815962/1.jpg?1606",
@@ -217,7 +217,7 @@ const DealsOfTheDay = [
     numReviews: 0,
   },
   {
-    _id: 4,
+    _id: 16,
     name: "Sony Playstation 4 Pro White Version",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/56/864824/1.jpg?6508",
@@ -231,7 +231,7 @@ const DealsOfTheDay = [
     numReviews: 0,
   },
   {
-    _id: 5,
+    _id: 17,
     name: "Logitech G-Series Gaming Mouse",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/79/781166/1.jpg?7012",
@@ -245,7 +245,7 @@ const DealsOfTheDay = [
     numReviews: 0,
   },
   {
-    _id: 6,
+    _id: 18,
     name: "Amazon Echo Dot 3rd Generation",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/35/875405/1.jpg?8033",
@@ -261,7 +261,7 @@ const DealsOfTheDay = [
 ];
 const scent = [
   {
-    _id: 1,
+    _id: 19,
     name: "Airpods Wireless Bluetooth Headphones",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/66/538576/1.jpg?1375",
@@ -275,7 +275,7 @@ const scent = [
     numReviews: 0,
   },
   {
-    _id: 2,
+    _id: 20,
     name: "iPhone 11 Pro 256GB Memory",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/91/439386/1.jpg?5243",
@@ -289,7 +289,7 @@ const scent = [
     numReviews: 0,
   },
   {
-    _id: 3,
+    _id: 21,
     name: "Cannon EOS 80D DSLR Camera",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/28/017534/1.jpg?8357",
@@ -303,7 +303,7 @@ const scent = [
     numReviews: 0,
   },
   {
-    _id: 4,
+    _id: 22,
     name: "Sony Playstation 4 Pro White Version",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/75/636985/1.jpg?8520",
@@ -317,7 +317,7 @@ const scent = [
     numReviews: 0,
   },
   {
-    _id: 5,
+    _id: 23,
     name: "Logitech G-Series Gaming Mouse",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/98/482054/1.jpg?0171",
@@ -331,7 +331,7 @@ const scent = [
     numReviews: 0,
   },
   {
-    _id: 6,
+    _id: 24,
     name: "Amazon Echo Dot 3rd Generation",
     image:
       "https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/21/041295/1.jpg?4425",
