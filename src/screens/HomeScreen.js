@@ -6,6 +6,7 @@ import SideBar from "../components/SideBar";
 import Slider from "../components/Slider";
 import Products from "../components/Products";
 import AdBanner from "../components/AdBanner";
+import Categories from "../components/Categories";
 
 const HomeScreen = () => {
   return (
@@ -37,6 +38,9 @@ const HomeScreen = () => {
           color='red'
           category='todayDeals'
         />
+      </Container>
+      <Container className='app__container'>
+        <Categories />
       </Container>
     </>
   );
