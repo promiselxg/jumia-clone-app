@@ -1,12 +1,27 @@
 import React from "react";
-import { TopSellingProducts } from "../Data/Products";
+import {
+  TopSellingProducts,
+  DealsOfTheDay,
+  products,
+  scent,
+} from "../Data/Products";
 import ListProducts from "../products/ListProducts";
+let itemCategory = TopSellingProducts;
 
-const Product = () => {
+const Product = ({ category }) => {
+  if (category === "todayDeals") {
+    itemCategory = DealsOfTheDay;
+  } else if (category === "jumia_festival") {
+    itemCategory = products;
+  } else if (category === "scents") {
+    itemCategory = scent;
+  } else {
+    itemCategory = TopSellingProducts;
+  }
   return (
     <>
       <div className='products__display'>
-        {TopSellingProducts.map((product) => (
+        {itemCategory.map((product) => (
           <ListProducts
             key={product._id}
             image={product.image}

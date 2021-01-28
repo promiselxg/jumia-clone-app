@@ -3,7 +3,7 @@ import "../css/Product.css";
 import Product from "../categories/Product";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
-const ProductOptions = ({ text, color }) => {
+const Products = ({ text, color, category }) => {
   return (
     <div className='product'>
       <div className='productOptions'>
@@ -34,10 +34,10 @@ const ProductOptions = ({ text, color }) => {
             </h1>
           )}
         </div>
-        <Product />
+        <Product category={category} />
       </div>
     </div>
   );
 };
 
-export default ProductOptions;
+export default Products;
