@@ -1,5 +1,4 @@
 import React from "react";
-import products from "../Data/Products";
 
 const ListCategories = ({ Icon, Title }) => {
   return (

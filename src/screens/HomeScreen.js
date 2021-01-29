@@ -11,7 +11,7 @@ import Categories from "../components/Categories";
 const HomeScreen = () => {
   return (
     <>
-      <Container className='app__container'>
+      <Container className='app__container' style={{ marginTop: "10px" }}>
         <SideBar />
         <Slider />
         <RightBar />

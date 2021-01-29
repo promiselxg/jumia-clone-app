@@ -1,0 +1,184 @@
+.footer {
+  width: 100%;
+  color: #fff;
+  margin-top: 40px;
+}
+.footer__topBg {
+  display: flex;
+  background-color: #282828;
+  height: auto;
+  padding: 20px 0px;
+}
+
+.footer__topLogo {
+  display: flex;
+  flex: 0.25;
+}
+.footer__topLogo > img {
+  object-fit: contain;
+  height: 50px;
+}
+.footer__topCenter {
+  display: flex;
+  flex: 0.5;
+  margin-right: 20px;
+  flex-direction: column;
+}
+.footer__topCenterTitle > h2 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+}
+.footer__topCenterTitle > p {
+  font-size: 0.8rem;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+.footer__topCenterInput {
+  display: flex;
+  margin-top: 10px;
+}
+.footer__topCenterInput > div {
+  background-color: #fff;
+  width: 90%;
+  border-radius: 3px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+.footer__topCenterInput > div > .MuiSvgIcon-root {
+  color: gray;
+  opacity: 0.7;
+}
+.footer__topCenterInput > div > input {
+  width: 100%;
+  border: none;
+  margin-left: 3px;
+  outline: none;
+  outline-width: 0px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.footer__centerButton {
+  margin-right: 10px !important;
+  border-color: #fff !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  transition: color 2s ease-out;
+}
+.footer__centerButton:hover {
+  color: #f6881e !important;
+  border-color: #f6881e !important;
+}
+.footer__right {
+  display: flex;
+  flex-direction: column;
+
+  flex: 0.2;
+}
+.footer__rightTop {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.footer__rightTopImage > img {
+  display: flex;
+  object-fit: contain;
+  height: 40px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+.footer__rightText {
+  display: flex;
+  flex-direction: column;
+}
+.footer__rightText > h2 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+}
+.footer__rightText > p {
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.footer__rightBottom {
+  display: flex;
+  flex-direction: column;
+}
+.footer__rightBottom > .footer__centerButton {
+  display: flex;
+  font-size: 10px !important;
+  margin-top: 5px;
+}
+.footer__bottom {
+  background-color: #323232;
+  padding-top: 20px;
+  color: #fff;
+}
+.footer__bottom > .app__container {
+  display: flex;
+  height: auto;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+.footer__link {
+  margin-right: auto;
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+}
+.footer__link:nth-child(4) {
+  margin-left: 10px;
+}
+.footer__link > h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.footer__link > p,
+.footer__link > div > p {
+  margin-bottom: 3px;
+  font-size: 14px;
+  text-transform: capitalize;
+  transform: text-decoration 300ms ease-out;
+}
+.footer__link > p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.footer__bottomSocial {
+  display: flex;
+  border-bottom: 1px solid gray;
+  width: 98%;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.footer__bottomJoin {
+  margin-right: auto;
+  flex: 0.33;
+}
+.footer__bottomLogo {
+  flex: 1;
+}
+.footer__bottomSocial h2 {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.footer__bottomSocial .MuiSvgIcon-root {
+  margin-top: 10px;
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 300ms ease-out;
+}
+.footer__bottomSocial .MuiSvgIcon-root:hover {
+  color: #f6881e !important;
+}
