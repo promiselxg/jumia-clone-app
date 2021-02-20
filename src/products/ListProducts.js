@@ -31,10 +31,7 @@ const ListProducts = ({ image, name, price, newPrice, id }) => {
               </div>
             ) : (
               <div className='listProducts__priceOld'>
-                <h2>
-                  <span>&#8358;</span>
-                  {price}
-                </h2>
+                <h2>{price}</h2>
               </div>
             )}
           </div>

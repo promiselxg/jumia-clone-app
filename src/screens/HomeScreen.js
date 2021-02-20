@@ -22,23 +22,23 @@ const HomeScreen = () => {
       <Container className='app__container'>
         <Products />
       </Container>
-      <Container className='app__container'>
+      {/*<Container className='app__container'>
         <Products
           text='Deals of the Day | From ₦1,000'
           color='red'
           category='todayDeals'
         />
-      </Container>
+      </Container>*/}
       <Container className='app__container'>
         <AdBanner Image1='https://ng.jumia.is/cms/0-4-jumia-global/designs/jan-28/cb-homepage.jpg' />
       </Container>
-      <Container className='app__container'>
+      {/*<Container className='app__container'>
         <Products
           text='Deals of the Day | From ₦1,000'
           color='red'
           category='todayDeals'
         />
-      </Container>
+      </Container>*/}
       <Container className='app__container'>
         <Categories />
       </Container>

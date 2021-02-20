@@ -37,7 +37,22 @@
   margin-left: auto;
   margin-right: auto;
   width: 99%;
-  margin-bottom: 20px;
+}
+.product__displayPreview {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.product__displayPreview > .skelecton {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.MuiSkeleton-rect {
+  display: flex !important;
 }
 .listProducts {
   margin-right: 10px;
