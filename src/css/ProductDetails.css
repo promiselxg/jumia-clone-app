@@ -59,7 +59,6 @@
 }
 .productDetails__bodyProductImage > div {
   display: flex;
-  background-color: green;
   flex-direction: column-reverse !important;
   margin-bottom: 10px;
 }

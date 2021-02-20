@@ -7,18 +7,23 @@ import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import TouchAppIcon from "@material-ui/icons/TouchApp";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import ReplayIcon from "@material-ui/icons/Replay";
+import { RectImageSkeleton, TextSkeleton } from "../../screens/Skelecton";
 
 const ProductDetails = ({ data, loading }) => {
   return (
     <div className='productDetails'>
       <div className='productDetails__body'>
         <div className='productDetails__bodyProductImage'>
-          {loading ? "loading..." : <img src={data.src} alt='' />}
+          {loading ? (
+            <RectImageSkeleton />
+          ) : (
+            <img src={data.src} alt={data.name} />
+          )}
         </div>
         <div className='productDetails__bodyContent'>
           <div className='productDetails__bodyHeading'>
             {loading ? (
-              "loading..."
+              <TextSkeleton />
             ) : (
               <>
                 <h1>{data.name}</h1>
@@ -29,7 +34,7 @@ const ProductDetails = ({ data, loading }) => {
           <Divider className='divider' />
           <div className='productDetails__price'>
             {loading ? (
-              "loading..."
+              <TextSkeleton />
             ) : (
               <>
                 <span className='productDetails__priceNewPrice'>

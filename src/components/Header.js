@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/Header.css";
-import { Container, Button } from "@material-ui/core";
+import { Container, Button, Badge, IconButton } from "@material-ui/core";
 import {
   Search,
   PermIdentity,
@@ -59,7 +59,11 @@ const Header = () => {
 
               <div className='header__rightIcons'>
                 {" "}
-                <ShoppingCartOutlined />
+                <IconButton aria-label='Show cart Items'>
+                  <Badge badgeContent={2} color='secondary'>
+                    <ShoppingCartOutlined />
+                  </Badge>
+                </IconButton>
                 <h2>Cart</h2>
               </div>
             </div>

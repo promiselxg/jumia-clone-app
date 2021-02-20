@@ -28,7 +28,7 @@ const ProductScreen = ({ match }) => {
 
   useEffect(() => {
     fetchSingleProduct(id);
-  }, [id]);
+  }, [id, setSingleProduct]);
   return (
     <>
       <Container className='app__container productScreen'>

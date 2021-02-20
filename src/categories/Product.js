@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { commerce } from "../../src/lib/commerce";
 import ListProducts from "../products/ListProducts";
-import Skelecton from "../screens/Skelecton";
+import { ProductsSkelecton } from "../screens/Skelecton";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -10,9 +10,7 @@ const Product = () => {
   const fetchProducts = async () => {
     setLoading(true);
     const { data } = await commerce.products.list();
-
     setProducts(data);
-
     setLoading(false);
   };
 
@@ -26,28 +24,24 @@ const Product = () => {
       <div className='products__display'>
         {loading ? (
           <>
-            <Skelecton />
-            <Skelecton />
-            <Skelecton />
-            <Skelecton />
-            <Skelecton />
-            <Skelecton />
+            <ProductsSkelecton />
+            <ProductsSkelecton />
+            <ProductsSkelecton />
+            <ProductsSkelecton />
+            <ProductsSkelecton />
+            <ProductsSkelecton />
           </>
         ) : (
-          products.map((product) =>
-            loading ? (
-              <Skelecton />
-            ) : (
-              <ListProducts
-                key={product.id}
-                image={product.media.source}
-                name={product.name}
-                price={product.price.formatted_with_symbol}
-                //newPrice={product.price.formatted}
-                id={product.id}
-              />
-            )
-          )
+          products.map((product) => (
+            <ListProducts
+              key={product.id}
+              image={product.media.source}
+              name={product.name}
+              price={product.price.formatted_with_symbol}
+              //newPrice={product.price.formatted}
+              id={product.id}
+            />
+          ))
         )}
       </div>
     </>
