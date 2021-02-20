@@ -8,25 +8,40 @@ import TouchAppIcon from "@material-ui/icons/TouchApp";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import ReplayIcon from "@material-ui/icons/Replay";
 
-const ProductDetails = () => {
+const ProductDetails = ({ data, loading }) => {
   return (
     <div className='productDetails'>
       <div className='productDetails__body'>
         <div className='productDetails__bodyProductImage'>
-          <img
-            src='https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/12/608143/1.jpg?7846'
-            alt=''
-          />
+          {loading ? "loading..." : <img src={data.src} alt='' />}
         </div>
         <div className='productDetails__bodyContent'>
           <div className='productDetails__bodyHeading'>
-            <h1>Incerun Men Vintage Short Sleeve Stand Collar Shirt-Yellow</h1>
-            <p>Brand: Incerun | Similar products from Incerun</p>
+            {loading ? (
+              "loading..."
+            ) : (
+              <>
+                <h1>{data.name}</h1>
+                <p>Brand: Incerun | Similar products from Incerun</p>
+              </>
+            )}
           </div>
           <Divider className='divider' />
           <div className='productDetails__price'>
-            <span className='productDetails__priceNewPrice'>&#8358;2,000</span>
-            <span className='productDetails__priceOldPrice'>&#8358;3,725</span>
+            {loading ? (
+              "loading..."
+            ) : (
+              <>
+                <span className='productDetails__priceNewPrice'>
+                  {data.price}
+                </span>
+                {data.newPrice && (
+                  <span className='productDetails__priceOldPrice'>
+                    &#8358;3,725
+                  </span>
+                )}
+              </>
+            )}
           </div>
           <Divider className='divider' />
           <div className='productDetails__size'>

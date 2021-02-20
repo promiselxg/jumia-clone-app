@@ -20,6 +20,7 @@ const Product = () => {
     fetchProducts();
   }, []);
 
+  //console.log(products);
   return (
     <>
       <div className='products__display'>
