@@ -5,13 +5,7 @@ const Skelecton = () => {
     <div className='product__displayPreview'>
       <div className='skelecton'>
         <div className='skelecton__productImage'>
-          <Skeleton
-            variant='rect'
-            width={190}
-            height={125}
-            component='div'
-            animation='wave'
-          />
+          <Skeleton variant='rect' width={190} height={125} animation='wave' />
         </div>
         <div className='skelecton__productName'>
           <Skeleton animation='wave' />
