@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -12,27 +11,38 @@ import { RectImageSkeleton, TextSkeleton } from "../../screens/Skelecton";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
-import { listProductDetails } from "../../actions/productActions";
+import { commerce } from "../../lib/commerce";
 
 const ProductDetails = ({ id }) => {
-  const dispatch = useDispatch();
-
-  const productDetails = useSelector((state) => state.productDetails);
-  const { loading, product } = productDetails;
-
+  const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [isLoading, setisLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
   const handleAddToCart = async (productId, qty) => {
     setisLoading(true);
-    // const { cart } = await commerce.cart.add(productId, qty);
+    const { cart } = await commerce.cart.add(productId, qty);
     setOpen(true);
-    // setisLoading(false);
+    setisLoading(false);
+  };
+
+  const fetchProductDetails = async (id) => {
+    setLoading(true);
+    const response = await commerce.products.retrieve(id);
+    const { name, quantity, description, media, price } = response;
+    setProduct({
+      name,
+      quantity,
+      description,
+      src: media.source,
+      price: price.formatted_with_symbol,
+    });
+    setLoading(false);
   };
 
   useEffect(() => {
-    dispatch(listProductDetails(id.params.id));
-  }, [id, dispatch]);
+    fetchProductDetails(id.params.id);
+  }, [id]);
 
   return (
     <>
