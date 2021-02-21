@@ -8,7 +8,7 @@ import { commerce } from "../../src/lib/commerce";
 
 const ProductScreen = ({ match }) => {
   const { id } = match.params;
-  const [singleProduct, setSingleProduct] = useState([]);
+  const [singleProduct, setSingleProduct] = useState({});
   const [loading, setLoading] = useState(false);
 
   const fetchSingleProduct = async (id) => {

@@ -170,6 +170,12 @@
   padding: 10px;
   justify-content: flex-start;
 }
+.buttonProgress {
+  color: green !important;
+  position: "absolute" !important;
+  top: "50%" !important;
+  left: "50%" !important;
+}
 .startIcon {
   margin-right: 180px !important;
 }
