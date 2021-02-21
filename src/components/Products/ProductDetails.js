@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -8,24 +9,31 @@ import TouchAppIcon from "@material-ui/icons/TouchApp";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { RectImageSkeleton, TextSkeleton } from "../../screens/Skelecton";
-import { commerce } from "../../lib/commerce";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
+import { listProductDetails } from "../../actions/productActions";
 
-const ProductDetails = ({ data, loading }) => {
-  const [cartItem, setCartItem] = useState({});
+const ProductDetails = ({ id }) => {
+  const dispatch = useDispatch();
+
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, product } = productDetails;
+
   const [isLoading, setisLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
   const handleAddToCart = async (productId, qty) => {
     setisLoading(true);
-    const item = await commerce.cart.add(productId, qty);
-    setCartItem(item);
+    // const { cart } = await commerce.cart.add(productId, qty);
     setOpen(true);
-    setisLoading(false);
+    // setisLoading(false);
   };
-  console.log(cartItem);
+
+  useEffect(() => {
+    dispatch(listProductDetails(id.params.id));
+  }, [id, dispatch]);
+
   return (
     <>
       <Collapse in={open}>
@@ -46,7 +54,7 @@ const ProductDetails = ({ data, loading }) => {
             {loading ? (
               <RectImageSkeleton />
             ) : (
-              <img src={data.src} alt={data.name} />
+              <img src={product.src} alt={product.name} />
             )}
           </div>
           <div className='productDetails__bodyContent'>
@@ -55,7 +63,7 @@ const ProductDetails = ({ data, loading }) => {
                 <TextSkeleton />
               ) : (
                 <>
-                  <h1>{data.name}</h1>
+                  <h1>{product.name}</h1>
                   <p>Brand: Incerun | Similar products from Incerun</p>
                 </>
               )}
@@ -67,9 +75,9 @@ const ProductDetails = ({ data, loading }) => {
               ) : (
                 <>
                   <span className='productDetails__priceNewPrice'>
-                    {data.price}
+                    {product.price}
                   </span>
-                  {data.newPrice && (
+                  {product.newPrice && (
                     <span className='productDetails__priceOldPrice'>
                       &#8358;3,725
                     </span>
@@ -100,7 +108,7 @@ const ProductDetails = ({ data, loading }) => {
                 startIcon={<AddShoppingCartIcon className='startIcon' />}
                 className='buttonText'
                 disabled={isLoading}
-                onClick={() => handleAddToCart(data.id, 1)}
+                onClick={() => handleAddToCart(product.id, 1)}
               >
                 {isLoading && (
                   <CircularProgress size={24} className='buttonProgress' />

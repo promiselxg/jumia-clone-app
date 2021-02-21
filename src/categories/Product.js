@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { commerce } from "../../src/lib/commerce";
+import React, { useEffect } from "react";
 import ListProducts from "../products/ListProducts";
+import { useDispatch, useSelector } from "react-redux";
 import { ProductsSkelecton } from "../screens/Skelecton";
+import { listProducts } from "../actions/productActions";
 
 const Product = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const fetchProducts = async () => {
-    setLoading(true);
-    const { data } = await commerce.products.list();
-    setProducts(data);
-    setLoading(false);
-  };
+  const productList = useSelector((state) => state.productList);
+  const { loading, products } = productList;
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    dispatch(listProducts());
+  }, [dispatch]);
 
   //console.log(products);
   return (
