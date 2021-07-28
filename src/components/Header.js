@@ -13,27 +13,27 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <div className='header'>
+      <div className="header">
         <Container>
-          <div className='header__container'>
-            <div className='header__left'>
-              <Link to='/'>
+          <div className="header__container">
+            <div className="header__left">
+              <Link to="/">
                 <img
-                  src='https://www.cgiainstitute.org/wp-content/uploads/2019/04/Jumia-logo.jpg'
-                  alt='humia logo'
+                  src="https://getcake.com/wp-content/uploads/2017/03/Jumia-logo.png"
+                  alt="humia logo"
                 />
               </Link>
             </div>
-            <div className='header__center'>
-              <div className='header__search'>
+            <div className="header__center">
+              <div className="header__search">
                 <Search />
                 <input
-                  type='text'
-                  placeholder='Search products, brands and categories'
+                  type="text"
+                  placeholder="Search products, brands and categories"
                 />
               </div>
               <Button
-                variant='contained'
+                variant="contained"
                 style={{
                   backgroundColor: "#f6881E",
                   color: "#FFF",
@@ -44,23 +44,23 @@ const Header = () => {
                 Search
               </Button>
             </div>
-            <div className='header__right'>
-              <div className='header__rightIcons'>
+            <div className="header__right">
+              <div className="header__rightIcons">
                 <PermIdentity />
                 <h2>Login</h2>
                 <ExpandMoreOutlined />
               </div>
-              <div className='header__rightIcons'>
+              <div className="header__rightIcons">
                 {" "}
                 <HelpOutline />
                 <h2>Help</h2>
                 <ExpandMoreOutlined />
               </div>
 
-              <div className='header__rightIcons'>
+              <div className="header__rightIcons">
                 {" "}
-                <IconButton aria-label='Show cart Items'>
-                  <Badge badgeContent={2} color='secondary'>
+                <IconButton aria-label="Show cart Items">
+                  <Badge badgeContent={2} color="secondary">
                     <ShoppingCartOutlined />
                   </Badge>
                 </IconButton>

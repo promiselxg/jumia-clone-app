@@ -14,23 +14,30 @@ import Collapse from "@material-ui/core/Collapse";
 import { commerce } from "../../lib/commerce";
 
 const ProductDetails = ({ id }) => {
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [isLoading, setisLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [product, setProduct] = useState([]); // products
+  const [loading, setLoading] = useState(false); // for skelecton
+  const [isLoading, setisLoading] = useState(false); // for adding item to cart
+  const [open, setOpen] = useState(false); // item added to cart display
 
-  const handleAddToCart = async (productId, qty) => {
+  const handleAddToCart = async (product_id, qty) => {
     setisLoading(true);
-    const { cart } = await commerce.cart.add(productId, qty);
+    await commerce.cart.add(product_id, qty);
     setOpen(true);
     setisLoading(false);
+    window.scrollTo(0, 0);
   };
 
-  const fetchProductDetails = async (id) => {
+  //  hide added to cart notification
+  setTimeout(() => {
+    setOpen(false);
+  }, 2000);
+
+  const fetchProductDetails = async (pid) => {
     setLoading(true);
-    const response = await commerce.products.retrieve(id);
-    const { name, quantity, description, media, price } = response;
+    const response = await commerce.products.retrieve(pid);
+    const { name, quantity, description, media, price, id } = response;
     setProduct({
+      product_id: id,
       name,
       quantity,
       description,
@@ -41,6 +48,7 @@ const ProductDetails = ({ id }) => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetchProductDetails(id.params.id);
   }, [id]);
 
@@ -51,24 +59,24 @@ const ProductDetails = ({ id }) => {
           onClose={() => {
             setOpen(false);
           }}
-          variant='outlined'
-          severity='success'
-          style={{ marginTop: "5px" }}
+          variant="outlined"
+          severity="success"
+          style={{ marginTop: "15px" }}
         >
           Item added to cart
         </Alert>
       </Collapse>
-      <div className='productDetails'>
-        <div className='productDetails__body'>
-          <div className='productDetails__bodyProductImage'>
+      <div className="productDetails">
+        <div className="productDetails__body">
+          <div className="productDetails__bodyProductImage">
             {loading ? (
               <RectImageSkeleton />
             ) : (
               <img src={product.src} alt={product.name} />
             )}
           </div>
-          <div className='productDetails__bodyContent'>
-            <div className='productDetails__bodyHeading'>
+          <div className="productDetails__bodyContent">
+            <div className="productDetails__bodyHeading">
               {loading ? (
                 <TextSkeleton />
               ) : (
@@ -78,30 +86,30 @@ const ProductDetails = ({ id }) => {
                 </>
               )}
             </div>
-            <Divider className='divider' />
-            <div className='productDetails__price'>
+            <Divider className="divider" />
+            <div className="productDetails__price">
               {loading ? (
                 <TextSkeleton />
               ) : (
                 <>
-                  <span className='productDetails__priceNewPrice'>
+                  <span className="productDetails__priceNewPrice">
                     {product.price}
                   </span>
                   {product.newPrice && (
-                    <span className='productDetails__priceOldPrice'>
+                    <span className="productDetails__priceOldPrice">
                       &#8358;3,725
                     </span>
                   )}
                 </>
               )}
             </div>
-            <Divider className='divider' />
-            <div className='productDetails__size'>
-              <div className='productSize__heading'>
+            <Divider className="divider" />
+            <div className="productDetails__size">
+              <div className="productSize__heading">
                 <p>Select Variation</p>
                 <p>Size guide</p>
               </div>
-              <div className='productSize__container'>
+              <div className="productSize__container">
                 <div>S</div>
                 <div>M</div>
                 <div>L</div>
@@ -112,30 +120,30 @@ const ProductDetails = ({ id }) => {
                 <div>5XL</div>
               </div>
             </div>
-            <div className='productDetails__addToCartBtn'>
+            <div className="productDetails__addToCartBtn">
               <Button
-                variant='contained'
-                startIcon={<AddShoppingCartIcon className='startIcon' />}
-                className='buttonText'
+                variant="contained"
+                startIcon={<AddShoppingCartIcon className="startIcon" />}
+                className="buttonText"
                 disabled={isLoading}
-                onClick={() => handleAddToCart(product.id, 1)}
+                onClick={() => handleAddToCart(product.product_id, 1)}
               >
                 {isLoading && (
-                  <CircularProgress size={24} className='buttonProgress' />
+                  <CircularProgress size={24} className="buttonProgress" />
                 )}
                 Add to cart
               </Button>
             </div>
-            <Divider className='divider' />
+            <Divider className="divider" />
           </div>
         </div>
-        <div className='productDetails__right'>
-          <div className='productDetails__rightContainer'>
+        <div className="productDetails__right">
+          <div className="productDetails__rightContainer">
             <h1>DELIVERY &amp; RETURNS</h1>
-            <Divider className='divider' />
+            <Divider className="divider" />
             <h1>Choose your location</h1>
             <States />
-            <div className='productDetails__delivery'>
+            <div className="productDetails__delivery">
               <div>
                 <span>
                   <LocalShippingIcon />

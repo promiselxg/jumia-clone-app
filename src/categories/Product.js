@@ -6,7 +6,6 @@ import { listProducts } from "../actions/productActions";
 
 const Product = () => {
   const dispatch = useDispatch();
-
   const productList = useSelector((state) => state.productList);
   const { loading, products } = productList;
 
@@ -17,7 +16,7 @@ const Product = () => {
   //console.log(products);
   return (
     <>
-      <div className='products__display'>
+      <div className="products__display">
         {loading ? (
           <>
             <ProductsSkelecton />

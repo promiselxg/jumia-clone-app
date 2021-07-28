@@ -6,16 +6,18 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 const Breadcrum = () => {
   return (
-    <div className='breadCrum'>
+    <div className="breadCrum">
       <Breadcrumbs
-        aria-label='breadcrumb'
-        separator={<NavigateNextIcon fontSize='small' />}
+        aria-label="breadcrumb"
+        separator={<NavigateNextIcon fontSize="small" />}
       >
-        <Link color='inherit' to={"/"}>
+        <Link color="inherit" to={"/"}>
           Home
         </Link>
-        <Link color='inherit'>Fashion</Link>
-        <Typography color='textPrimary'>Men's Fashion</Typography>
+        <Link color="inherit" to={`/`}>
+          Fashion
+        </Link>
+        <Typography color="textPrimary">Men's Fashion</Typography>
       </Breadcrumbs>
     </div>
   );
