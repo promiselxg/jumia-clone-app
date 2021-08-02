@@ -21,7 +21,7 @@ const ProductDetails = ({ id }) => {
 
   const handleAddToCart = async (product_id, qty) => {
     setisLoading(true);
-    await commerce.cart.add(product_id, qty);
+    const { cart } = await commerce.cart.add(product_id, qty);
     setOpen(true);
     setisLoading(false);
     window.scrollTo(0, 0);
@@ -31,7 +31,7 @@ const ProductDetails = ({ id }) => {
   setTimeout(() => {
     setOpen(false);
   }, 2000);
-
+  // fetch product details
   const fetchProductDetails = async (pid) => {
     setLoading(true);
     const response = await commerce.products.retrieve(pid);
@@ -129,7 +129,7 @@ const ProductDetails = ({ id }) => {
                 onClick={() => handleAddToCart(product.product_id, 1)}
               >
                 {isLoading && (
-                  <CircularProgress size={24} className="buttonProgress" />
+                  <CircularProgress size={30} className="buttonProgress" />
                 )}
                 Add to cart
               </Button>

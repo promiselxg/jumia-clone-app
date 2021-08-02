@@ -172,9 +172,7 @@
 }
 .buttonProgress {
   color: green !important;
-  position: "absolute" !important;
-  top: "50%" !important;
-  left: "50%" !important;
+  font-weight: bold;
 }
 .startIcon {
   margin-right: 180px !important;
