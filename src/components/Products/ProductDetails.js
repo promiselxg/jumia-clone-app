@@ -30,7 +30,8 @@ const ProductDetails = ({ id }) => {
   const [open, setOpen] = useState(isLoading);
   setTimeout(() => {
     setOpen(isLoading);
-  }, 2000);
+    window.scrollTo(0, 0);
+  }, 5000);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,7 +40,7 @@ const ProductDetails = ({ id }) => {
 
   return (
     <>
-      <Collapse in={open}>
+      <Collapse in={isLoading}>
         <Alert
           onClose={() => {
             setOpen(isLoading);
