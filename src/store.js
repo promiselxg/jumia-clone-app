@@ -4,11 +4,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import {
   productListReducer,
   productDetailsReducer,
+  addProductToCartReducer,
 } from "./reducers/productReducers";
 
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
+  shoppingCart: addProductToCartReducer,
 });
 
 const initialState = {};

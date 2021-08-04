@@ -11,53 +11,38 @@ import { RectImageSkeleton, TextSkeleton } from "../../screens/Skelecton";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
-import { commerce } from "../../lib/commerce";
+import { useDispatch, useSelector } from "react-redux";
+import { listProductDetails, addToCart } from "../../actions/productActions";
 
 const ProductDetails = ({ id }) => {
-  const [product, setProduct] = useState([]); // products
-  const [loading, setLoading] = useState(false); // for skelecton
-  const [isLoading, setisLoading] = useState(false); // for adding item to cart
-  const [open, setOpen] = useState(false); // item added to cart display
-
+  const dispatch = useDispatch();
+  //  PRODUCT DETAILS
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, product } = productDetails;
+  //  ADD TO CART
+  const Cart = useSelector((state) => state.shoppingCart);
+  const { loading: isLoading } = Cart;
   const handleAddToCart = async (product_id, qty) => {
-    setisLoading(true);
-    const { cart } = await commerce.cart.add(product_id, qty);
-    setOpen(true);
-    setisLoading(false);
-    window.scrollTo(0, 0);
+    dispatch(addToCart(product_id, qty));
   };
 
   //  hide added to cart notification
+  const [open, setOpen] = useState(isLoading);
   setTimeout(() => {
-    setOpen(false);
+    setOpen(isLoading);
   }, 2000);
-  // fetch product details
-  const fetchProductDetails = async (pid) => {
-    setLoading(true);
-    const response = await commerce.products.retrieve(pid);
-    const { name, quantity, description, media, price, id } = response;
-    setProduct({
-      product_id: id,
-      name,
-      quantity,
-      description,
-      src: media.source,
-      price: price.formatted_with_symbol,
-    });
-    setLoading(false);
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchProductDetails(id.params.id);
-  }, [id]);
+    dispatch(listProductDetails(id.params.id));
+  }, [dispatch, id.params.id]);
 
   return (
     <>
       <Collapse in={open}>
         <Alert
           onClose={() => {
-            setOpen(false);
+            setOpen(isLoading);
           }}
           variant="outlined"
           severity="success"
@@ -126,7 +111,7 @@ const ProductDetails = ({ id }) => {
                 startIcon={<AddShoppingCartIcon className="startIcon" />}
                 className="buttonText"
                 disabled={isLoading}
-                onClick={() => handleAddToCart(product.product_id, 1)}
+                onClick={() => handleAddToCart(product.id, 1)}
               >
                 {isLoading && (
                   <CircularProgress size={30} className="buttonProgress" />
