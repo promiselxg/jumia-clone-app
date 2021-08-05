@@ -49,13 +49,12 @@ export const addToCart = (product_id, qty) => async (dispatch) => {
     dispatch({
       type: "ADD_TO_CART_REQUEST",
     });
-    await commerce.cart.empty();
-    // const response = await commerce.cart.add(product_id, qty);
-    // const { cart } = response;
+    const response = await commerce.cart.add(product_id, qty);
+    const { cart } = response;
     dispatch({
       type: "ADD_TO_CART_SUCCESS",
       payload: {
-        //response: cart,
+        response: cart,
       },
     });
   } catch (error) {

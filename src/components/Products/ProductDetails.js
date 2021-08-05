@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -9,29 +9,27 @@ import AllInboxIcon from "@material-ui/icons/AllInbox";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { RectImageSkeleton, TextSkeleton } from "../../screens/Skelecton";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Alert from "@material-ui/lab/Alert";
-import Collapse from "@material-ui/core/Collapse";
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails, addToCart } from "../../actions/productActions";
+import toast, { Toaster } from "react-hot-toast";
 
 const ProductDetails = ({ id }) => {
+  const notify = () =>
+    toast.success(`${product?.name} added to Cart`, {
+      duration: 5000,
+      className: "toast__notification",
+    });
   const dispatch = useDispatch();
-  //  PRODUCT DETAILS
+  //  PRODUCT DETAILS STATE
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, product } = productDetails;
-  //  ADD TO CART
+  //  CART STATE
   const Cart = useSelector((state) => state.shoppingCart);
   const { loading: isLoading } = Cart;
+  //  ADD TO CART FUNCTION
   const handleAddToCart = async (product_id, qty) => {
     dispatch(addToCart(product_id, qty));
   };
-
-  //  hide added to cart notification
-  const [open, setOpen] = useState(isLoading);
-  setTimeout(() => {
-    setOpen(isLoading);
-    window.scrollTo(0, 0);
-  }, 5000);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,25 +38,21 @@ const ProductDetails = ({ id }) => {
 
   return (
     <>
-      <Collapse in={isLoading}>
-        <Alert
-          onClose={() => {
-            setOpen(isLoading);
-          }}
-          variant="outlined"
-          severity="success"
-          style={{ marginTop: "15px" }}
-        >
-          Item added to cart
-        </Alert>
-      </Collapse>
+      {!(isLoading && notify()) ? (
+        <div className="toast__notification">
+          <Toaster />
+        </div>
+      ) : (
+        ""
+      )}
+
       <div className="productDetails">
         <div className="productDetails__body">
           <div className="productDetails__bodyProductImage">
             {loading ? (
               <RectImageSkeleton />
             ) : (
-              <img src={product.src} alt={product.name} />
+              <img src={product?.src} alt={product?.name} />
             )}
           </div>
           <div className="productDetails__bodyContent">
@@ -67,7 +61,7 @@ const ProductDetails = ({ id }) => {
                 <TextSkeleton />
               ) : (
                 <>
-                  <h1>{product.name}</h1>
+                  <h1>{product?.name}</h1>
                   <p>Brand: Incerun | Similar products from Incerun</p>
                 </>
               )}
@@ -79,9 +73,9 @@ const ProductDetails = ({ id }) => {
               ) : (
                 <>
                   <span className="productDetails__priceNewPrice">
-                    {product.price}
+                    {product?.price}
                   </span>
-                  {product.newPrice && (
+                  {product?.newPrice && (
                     <span className="productDetails__priceOldPrice">
                       &#8358;3,725
                     </span>
@@ -112,7 +106,7 @@ const ProductDetails = ({ id }) => {
                 startIcon={<AddShoppingCartIcon className="startIcon" />}
                 className="buttonText"
                 disabled={isLoading}
-                onClick={() => handleAddToCart(product.id, 1)}
+                onClick={() => handleAddToCart(product?.id, 1)}
               >
                 {isLoading && (
                   <CircularProgress size={30} className="buttonProgress" />

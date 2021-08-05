@@ -251,3 +251,11 @@
   color: #282828;
   font-weight: 400;
 }
+.toast__notification {
+  z-index: 1000;
+  background: green;
+  color: #fff;
+  font-weight: 600;
+  width: 100%;
+  max-width: none;
+}
