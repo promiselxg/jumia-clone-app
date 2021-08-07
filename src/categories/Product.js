@@ -27,14 +27,14 @@ const Product = () => {
             <ProductsSkelecton />
           </>
         ) : (
-          products.map((product) => (
+          products?.map((product) => (
             <ListProducts
-              key={product.id}
-              image={product.media.source}
-              name={product.name}
-              price={product.price.formatted_with_symbol}
+              key={product?.id}
+              image={product?.media.source}
+              name={product?.name}
+              price={product?.price.formatted_with_symbol}
               //newPrice={product.price.formatted}
-              id={product.id}
+              id={product?.id}
             />
           ))
         )}

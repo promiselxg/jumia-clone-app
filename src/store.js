@@ -13,7 +13,14 @@ const reducer = combineReducers({
   shoppingCart: addProductToCartReducer,
 });
 
-const initialState = {};
+//  Retrive Cart Items from Local Storage
+const localStorageCart = localStorage.getItem("items_in_cart")
+  ? JSON.parse(localStorage.getItem("items_in_cart"))
+  : [];
+
+const initialState = {
+  shoppingCart: { items_in_cart: localStorageCart },
+};
 const middleware = [thunk];
 
 const store = createStore(

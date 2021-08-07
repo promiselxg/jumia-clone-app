@@ -1,4 +1,3 @@
-import React from "react";
 import "../css/Header.css";
 import { Container, Button, Badge, IconButton } from "@material-ui/core";
 import {
@@ -46,25 +45,31 @@ const Header = () => {
             </div>
             <div className="header__right">
               <div className="header__rightIcons">
-                <PermIdentity />
-                <h2>Login</h2>
-                <ExpandMoreOutlined />
+                <Link to="/profile/login">
+                  <PermIdentity />
+                  <h2>Login</h2>
+                  <ExpandMoreOutlined />
+                </Link>
               </div>
               <div className="header__rightIcons">
-                {" "}
-                <HelpOutline />
-                <h2>Help</h2>
-                <ExpandMoreOutlined />
+                <Link to="/help/">
+                  {" "}
+                  <HelpOutline />
+                  <h2>Help</h2>
+                  <ExpandMoreOutlined />
+                </Link>
               </div>
 
               <div className="header__rightIcons">
                 {" "}
-                <IconButton aria-label="Show cart Items">
-                  <Badge badgeContent={2} color="secondary">
-                    <ShoppingCartOutlined />
-                  </Badge>
-                </IconButton>
-                <h2>Cart</h2>
+                <Link to="/cart/">
+                  <IconButton aria-label="Show cart Items">
+                    <Badge badgeContent={2} color="secondary">
+                      <ShoppingCartOutlined />
+                    </Badge>
+                  </IconButton>
+                  <h2>Cart</h2>
+                </Link>
               </div>
             </div>
           </div>

@@ -27,11 +27,11 @@ export const productDetailsReducer = (state = { product: {} }, action) => {
 export const addProductToCartReducer = (state = { cart: [] }, action) => {
   switch (action.type) {
     case "ADD_TO_CART_REQUEST":
-      return { loading: true };
+      return { loading: true, loaded: false };
     case "ADD_TO_CART_SUCCESS":
-      return { loading: false, cart: action.payload };
+      return { loading: false, loaded: true, cart: action.payload };
     case "ADD_TO_CART_FAIL":
-      return { loading: false, error: action.payload };
+      return { loading: false, loaded: false, error: action.payload };
     default:
       return state;
   }

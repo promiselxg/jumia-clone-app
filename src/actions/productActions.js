@@ -44,11 +44,13 @@ export const listProductDetails = (pid) => async (dispatch) => {
   }
 };
 
-export const addToCart = (product_id, qty) => async (dispatch) => {
+export const addToCart = (product_id, qty) => async (dispatch, getState) => {
   try {
     dispatch({
       type: "ADD_TO_CART_REQUEST",
     });
+    //await commerce.cart.remove();
+    //return false;
     const response = await commerce.cart.add(product_id, qty);
     const { cart } = response;
     dispatch({
@@ -57,6 +59,10 @@ export const addToCart = (product_id, qty) => async (dispatch) => {
         response: cart,
       },
     });
+    localStorage.setItem(
+      "items_in_cart",
+      JSON.stringify(getState().shoppingCart.cart.response)
+    );
   } catch (error) {
     dispatch({
       type: "ADD_TO_CART_FAIL",

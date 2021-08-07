@@ -11,21 +11,16 @@ import { RectImageSkeleton, TextSkeleton } from "../../screens/Skelecton";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails, addToCart } from "../../actions/productActions";
-import toast, { Toaster } from "react-hot-toast";
+import Notification from "../../screens/Notification";
 
 const ProductDetails = ({ id }) => {
-  const notify = () =>
-    toast.success(`${product?.name} added to Cart`, {
-      duration: 5000,
-      className: "toast__notification",
-    });
   const dispatch = useDispatch();
   //  PRODUCT DETAILS STATE
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, product } = productDetails;
   //  CART STATE
   const Cart = useSelector((state) => state.shoppingCart);
-  const { loading: isLoading } = Cart;
+  const { loading: isLoading, loaded } = Cart;
   //  ADD TO CART FUNCTION
   const handleAddToCart = async (product_id, qty) => {
     dispatch(addToCart(product_id, qty));
@@ -38,13 +33,7 @@ const ProductDetails = ({ id }) => {
 
   return (
     <>
-      {!(isLoading && notify()) ? (
-        <div className="toast__notification">
-          <Toaster />
-        </div>
-      ) : (
-        ""
-      )}
+      {!isLoading && loaded ? <Notification productName={product?.name} /> : ""}
 
       <div className="productDetails">
         <div className="productDetails__body">
@@ -101,18 +90,20 @@ const ProductDetails = ({ id }) => {
               </div>
             </div>
             <div className="productDetails__addToCartBtn">
-              <Button
-                variant="contained"
-                startIcon={<AddShoppingCartIcon className="startIcon" />}
-                className="buttonText"
-                disabled={isLoading}
-                onClick={() => handleAddToCart(product?.id, 1)}
-              >
-                {isLoading && (
-                  <CircularProgress size={30} className="buttonProgress" />
-                )}
-                Add to cart
-              </Button>
+              {!loading && (
+                <Button
+                  variant="contained"
+                  startIcon={<AddShoppingCartIcon className="startIcon" />}
+                  className="buttonText"
+                  disabled={isLoading}
+                  onClick={() => handleAddToCart(product?.id, 1)}
+                >
+                  {isLoading && (
+                    <CircularProgress size={30} className="buttonProgress" />
+                  )}
+                  Add to cart
+                </Button>
+              )}
             </div>
             <Divider className="divider" />
           </div>
