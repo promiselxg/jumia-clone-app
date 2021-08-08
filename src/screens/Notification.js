@@ -1,19 +1,40 @@
 import React from "react";
-import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
-
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 const Notification = ({ productName }) => {
-  useEffect(() => {
-    toast.success(`${productName} added to Cart`, {
-      duration: 5000,
-      className: "toast__notification",
-    });
-  }, [productName]);
-
+  const [open, setOpen] = React.useState(true);
+  const handleClose = (reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
   return (
     <>
-      <div className="toast__notification">
-        <Toaster />
+      <div>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          message={productName}
+          action={
+            <React.Fragment>
+              <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={handleClose}
+              >
+                <CloseIcon fontSize="small" />
+              </IconButton>
+            </React.Fragment>
+          }
+        />
       </div>
     </>
   );

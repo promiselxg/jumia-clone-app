@@ -13,8 +13,6 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const cartItems = useSelector((state) => state.shoppingCart);
   const { response } = cartItems.cart;
-  console.log(response);
-  //const {} = cartItems
   return (
     <>
       <div className="header">

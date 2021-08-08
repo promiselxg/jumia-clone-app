@@ -33,6 +33,7 @@ const ProductDetails = ({ id }) => {
 
   return (
     <>
+      {isLoading ? console.log(isLoading) : "loding...."}
       <div className="productDetails">
         <div className="productDetails__body">
           <div className="productDetails__bodyProductImage">
