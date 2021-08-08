@@ -1,4 +1,5 @@
 import { commerce } from "../lib/commerce";
+import { toast } from "react-toastify";
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({
@@ -44,30 +45,35 @@ export const listProductDetails = (pid) => async (dispatch) => {
   }
 };
 
-export const addToCart = (product_id, qty) => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: "ADD_TO_CART_REQUEST",
-    });
-    //await commerce.cart.remove();
-    //return false;
-    const response = await commerce.cart.add(product_id, qty);
-    const { cart } = response;
-    dispatch({
-      type: "ADD_TO_CART_SUCCESS",
-      payload: {
-        response: cart,
-      },
-    });
-    // add cart to local storage
-    localStorage.setItem(
-      "items_in_cart",
-      JSON.stringify(getState().shoppingCart.cart.response)
-    );
-  } catch (error) {
-    dispatch({
-      type: "ADD_TO_CART_FAIL",
-      payload: error,
-    });
-  }
-};
+export const addToCart =
+  (product_id, qty, product_name) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: "ADD_TO_CART_REQUEST",
+      });
+      //await commerce.cart.remove();
+      //return false;
+      const response = await commerce.cart.add(product_id, qty);
+      const { cart } = response;
+      dispatch({
+        type: "ADD_TO_CART_SUCCESS",
+        payload: {
+          response: cart,
+        },
+      });
+      // emit toast notification
+      toast.success(`${product_name} added to cart`, {
+        className: "toasting",
+      });
+      // add cart to local storage
+      localStorage.setItem(
+        "items_in_cart",
+        JSON.stringify(getState().shoppingCart.cart.response)
+      );
+    } catch (error) {
+      dispatch({
+        type: "ADD_TO_CART_FAIL",
+        payload: error,
+      });
+    }
+  };

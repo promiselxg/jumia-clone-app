@@ -251,11 +251,14 @@
   color: #282828;
   font-weight: 400;
 }
-.toast__notification {
+.Toastify__toast-container {
+  width: 98% !important;
+  text-align: center;
+}
+.toasting {
   z-index: 1000;
-  background: green;
-  color: #fff;
+  background: rgb(118, 199, 118);
+  color: #000;
   font-weight: 600;
   width: 100%;
-  max-width: none;
 }

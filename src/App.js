@@ -5,7 +5,6 @@ import Header from "./components/Header";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
-
 function App() {
   return (
     <Router>

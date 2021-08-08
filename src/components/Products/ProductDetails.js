@@ -11,7 +11,8 @@ import { RectImageSkeleton, TextSkeleton } from "../../screens/Skelecton";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails, addToCart } from "../../actions/productActions";
-import Notification from "../../screens/Notification";
+import { Slide, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = ({ id }) => {
   const dispatch = useDispatch();
@@ -22,8 +23,8 @@ const ProductDetails = ({ id }) => {
   const Cart = useSelector((state) => state.shoppingCart);
   const { loading: isLoading } = Cart;
   //  ADD TO CART FUNCTION
-  const handleAddToCart = async (product_id, qty) => {
-    dispatch(addToCart(product_id, qty));
+  const handleAddToCart = async (product_id, qty, product_name) => {
+    dispatch(addToCart(product_id, qty, product_name));
   };
 
   useEffect(() => {
@@ -33,7 +34,18 @@ const ProductDetails = ({ id }) => {
 
   return (
     <>
-      {isLoading ? console.log(isLoading) : "loding...."}
+      <div className="toast__notification">
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={true}
+          closeOnClick
+          rtl={false}
+          pauseOnHover={false}
+          transition={Slide}
+          draggable={false}
+        />
+      </div>
       <div className="productDetails">
         <div className="productDetails__body">
           <div className="productDetails__bodyProductImage">
@@ -95,7 +107,7 @@ const ProductDetails = ({ id }) => {
                   startIcon={<AddShoppingCartIcon className="startIcon" />}
                   className="buttonText"
                   disabled={isLoading}
-                  onClick={() => handleAddToCart(product?.id, 1)}
+                  onClick={() => handleAddToCart(product?.id, 1, product?.name)}
                 >
                   {isLoading && (
                     <CircularProgress size={30} className="buttonProgress" />
