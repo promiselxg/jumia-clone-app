@@ -20,7 +20,7 @@ const ProductDetails = ({ id }) => {
   const { loading, product } = productDetails;
   //  CART STATE
   const Cart = useSelector((state) => state.shoppingCart);
-  const { loading: isLoading, loaded } = Cart;
+  const { loading: isLoading } = Cart;
   //  ADD TO CART FUNCTION
   const handleAddToCart = async (product_id, qty) => {
     dispatch(addToCart(product_id, qty));
@@ -33,8 +33,6 @@ const ProductDetails = ({ id }) => {
 
   return (
     <>
-      {!isLoading && loaded ? <Notification productName={product?.name} /> : ""}
-
       <div className="productDetails">
         <div className="productDetails__body">
           <div className="productDetails__bodyProductImage">

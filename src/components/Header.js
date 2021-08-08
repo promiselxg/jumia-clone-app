@@ -8,8 +8,13 @@ import {
   ExpandMoreOutlined,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartItems = useSelector((state) => state.shoppingCart);
+  const { response } = cartItems.cart;
+  console.log(response);
+  //const {} = cartItems
   return (
     <>
       <div className="header">
@@ -59,12 +64,16 @@ const Header = () => {
                   <ExpandMoreOutlined />
                 </Link>
               </div>
-
               <div className="header__rightIcons">
                 {" "}
                 <Link to="/cart/">
                   <IconButton aria-label="Show cart Items">
-                    <Badge badgeContent={2} color="secondary">
+                    <Badge
+                      badgeContent={`${
+                        response && response.total_unique_items
+                      }`}
+                      color="secondary"
+                    >
                       <ShoppingCartOutlined />
                     </Badge>
                   </IconButton>
