@@ -37,7 +37,7 @@ const ProductDetails = ({ id }) => {
       <div className="toast__notification">
         <ToastContainer
           position="top-right"
-          autoClose={2000}
+          autoClose={5000}
           hideProgressBar={true}
           closeOnClick
           rtl={false}
