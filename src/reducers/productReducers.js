@@ -32,6 +32,12 @@ export const addProductToCartReducer = (state = { cart: [] }, action) => {
       return { loading: false, cart: action.payload };
     case "ADD_TO_CART_FAIL":
       return { loading: false, error: action.payload };
+    case "UPDATE_CART_QTY_REQUEST":
+      return { ...state, loading: true };
+    case "UPDATE_CART_QTY_SUCCESS":
+      return { loading: false, cart: action.payload };
+    case "UPDATE_CART_QTY_FAIL":
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

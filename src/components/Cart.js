@@ -1,16 +1,38 @@
+import React from "react";
 import "../css/Cart.css";
 import Container from "@material-ui/core/Container";
 import { Button } from "@material-ui/core";
 import { FavoriteBorder, Delete } from "@material-ui/icons";
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateCartQty } from "../actions/cartActions";
+import { Slide, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Cart = () => {
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.shoppingCart);
   const { response } = cartItems.cart;
-  console.log(response);
-  useEffect(() => window.scrollTo(0, 0), []);
+  // dispatch update cart qty action
+  const handleUpdateCartQty = async (product_id, qty) => {
+    dispatch(updateCartQty(product_id, qty));
+  };
+
   return (
     <>
+      <div className="toast__notification">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={true}
+          closeOnClick
+          rtl={false}
+          pauseOnHover={false}
+          transition={Slide}
+          draggable={false}
+        />
+      </div>
       <Container className="app__container">
         <div className="cart">
           <div className="cart__container">
@@ -38,10 +60,17 @@ const Cart = () => {
                       <tr className="cart__list" key={item.id}>
                         <td className="cart__heading">
                           <div className="product__image">
-                            <img src={item?.media?.source} alt="product name" />
+                            <Link to={`/product/${item.product_id}`}>
+                              <img
+                                src={item?.media?.source}
+                                alt="product name"
+                              />
+                            </Link>
                           </div>
                           <div className="product__title">
-                            <h1>{item.name}</h1>
+                            <Link to={`/product/${item.product_id}`}>
+                              <h1>{item.name}</h1>
+                            </Link>
                             <div className="product__actions">
                               <Button startIcon={<FavoriteBorder />}>
                                 move to saved items
@@ -52,12 +81,34 @@ const Cart = () => {
                         </td>
                         <td className="cart__qty">
                           <div className="product__quantity">
-                            <div className="minus">
-                              <Button>-</Button>
+                            <div className="minusx">
+                              <Button
+                                type="button"
+                                size="small"
+                                onClick={() =>
+                                  handleUpdateCartQty(
+                                    item?.id,
+                                    item?.quantity - 1
+                                  )
+                                }
+                              >
+                                -
+                              </Button>
                             </div>
                             <div className="qty">{item?.quantity}</div>
-                            <div className="add">
-                              <Button>+</Button>
+                            <div className="addx">
+                              <Button
+                                type="button"
+                                size="small"
+                                onClick={() =>
+                                  handleUpdateCartQty(
+                                    item?.id,
+                                    item?.quantity + 1
+                                  )
+                                }
+                              >
+                                +
+                              </Button>
                             </div>
                           </div>
                         </td>

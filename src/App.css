@@ -5,3 +5,14 @@
 .app__container {
   display: flex !important;
 }
+.Toastify__toast-container {
+  width: 98% !important;
+  text-align: center;
+}
+.toasting {
+  z-index: 1000;
+  background: rgb(118, 199, 118);
+  color: #000;
+  font-weight: 600;
+  width: 100%;
+}
