@@ -91,7 +91,6 @@ export const updateCartQty =
       dispatch({
         type: "UPDATE_QTY_SUCCESS",
         payload: {
-          status: true,
           response: cart,
         },
       });

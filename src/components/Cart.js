@@ -8,24 +8,20 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Slide, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { commerce } from "../lib/commerce";
 import { updateCartQty } from "../actions/productActions";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.shoppingCart);
+  const { loading } = cartItems;
   const { response } = cartItems.cart;
   // dispatch update cart qty action
   const handleUpdateCartQty = async (product_id, qty) => {
     dispatch(updateCartQty(product_id, qty));
   };
-
-  const fetchCart = async () => {
-    console.log(await commerce.cart.retrieve());
-  };
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchCart();
   }, []);
 
   return (
@@ -97,6 +93,7 @@ const Cart = () => {
                                 <Button
                                   type="button"
                                   size="small"
+                                  disabled={loading}
                                   onClick={() =>
                                     handleUpdateCartQty(
                                       item?.id,
@@ -107,11 +104,21 @@ const Cart = () => {
                                   -
                                 </Button>
                               </div>
-                              <div className="qty">{item?.quantity}</div>
+                              <div className="qty">
+                                {loading ? (
+                                  <CircularProgress
+                                    size={24}
+                                    className="circleProgress"
+                                  />
+                                ) : (
+                                  item?.quantity
+                                )}
+                              </div>
                               <div className="addx">
                                 <Button
                                   type="button"
                                   size="small"
+                                  disabled={loading}
                                   onClick={() =>
                                     handleUpdateCartQty(
                                       item?.id,
