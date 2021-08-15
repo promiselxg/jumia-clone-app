@@ -35,7 +35,7 @@ const Header = () => {
                 />
               </div>
               <Button
-                variant="contained"
+                className="header__search__button"
                 style={{
                   backgroundColor: "#f6881E",
                   color: "#FFF",
@@ -48,7 +48,7 @@ const Header = () => {
             </div>
             <div className="header__right">
               <div className="header__rightIcons">
-                <Link to="/profile/login">
+                <Link to="/customer/profile/login">
                   <PermIdentity />
                   <h2>Login</h2>
                   <ExpandMoreOutlined />

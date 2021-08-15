@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { Slide, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { removeFromCart, updateCartQty } from "../actions/productActions";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import EmptyCart from "./EmptyCart";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -27,11 +27,8 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    if (response.total_items === 0) {
-      console.log("Your cart is empty");
-    }
     window.scrollTo(0, 0);
-  }, [response.total_items]);
+  }, []);
 
   return (
     <>
@@ -50,16 +47,17 @@ const Cart = () => {
       <Container className="app__container">
         <div className="cart">
           <div className="cart__container">
-            {cartItems?.cart?.response === 0 ? (
-              "Empty Cart"
+            {response.total_items === undefined ||
+            response.total_items === 0 ? (
+              <EmptyCart />
             ) : (
               <div className="cart__items">
                 <div className="cart__items__title">
                   <h1>
                     Cart (
-                    {response?.total_unique_items > 1
-                      ? `${response?.total_unique_items} items`
-                      : `${response?.total_unique_items} item`}
+                    {response?.total_items > 0
+                      ? `${response?.total_items} items`
+                      : `${response?.total_items} item`}
                     )
                   </h1>
                   <h2>Your order is eligible for free shipping</h2>
@@ -119,16 +117,7 @@ const Cart = () => {
                                   -
                                 </Button>
                               </div>
-                              <div className="qty">
-                                {loading ? (
-                                  <CircularProgress
-                                    size={24}
-                                    className="circleProgress"
-                                  />
-                                ) : (
-                                  item?.quantity
-                                )}
-                              </div>
+                              <div className="qty">{item?.quantity}</div>
                               <div className="addx">
                                 <Button
                                   type="button"

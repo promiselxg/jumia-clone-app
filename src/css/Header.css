@@ -38,8 +38,9 @@
   margin-right: 5px;
   align-items: center;
 }
-.header__search > button {
-  margin-right: 10px;
+.header__search__button {
+  padding: 0px 20px !important;
+  border-radius: 3px !important;
 }
 .header__search > input {
   width: 100%;
