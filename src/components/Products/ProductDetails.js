@@ -47,44 +47,45 @@ const ProductDetails = ({ id }) => {
         />
       </div>
       <div className="productDetails">
-        <div className="productDetails__body">
-          <div className="productDetails__bodyProductImage">
-            {loading ? (
-              <RectImageSkeleton />
-            ) : (
-              <img src={product?.src} alt={product?.name} />
-            )}
-          </div>
-          <div className="productDetails__bodyContent">
-            <div className="productDetails__bodyHeading">
+        <div className="productDetails__container">
+          <div className="productDetails__body">
+            <div className="productDetails__bodyProductImage">
               {loading ? (
-                <TextSkeleton />
+                <RectImageSkeleton />
               ) : (
-                <>
-                  <h1>{product?.name}</h1>
-                  <p>Brand: Incerun | Similar products from Incerun</p>
-                </>
+                <img src={product?.src} alt={product?.name} />
               )}
             </div>
-            <Divider className="divider" />
-            <div className="productDetails__price">
-              {loading ? (
-                <TextSkeleton />
-              ) : (
-                <>
-                  <span className="productDetails__priceNewPrice">
-                    {product?.price}
-                  </span>
-                  {product?.newPrice && (
-                    <span className="productDetails__priceOldPrice">
-                      &#8358;3,725
+            <div className="productDetails__bodyContent">
+              <div className="productDetails__bodyHeading">
+                {loading ? (
+                  <TextSkeleton />
+                ) : (
+                  <>
+                    <h1>{product?.name}</h1>
+                    <p>Brand: Incerun | Similar products from Incerun</p>
+                  </>
+                )}
+              </div>
+              <Divider className="divider" />
+              <div className="productDetails__price">
+                {loading ? (
+                  <TextSkeleton />
+                ) : (
+                  <>
+                    <span className="productDetails__priceNewPrice">
+                      {product?.price}
                     </span>
-                  )}
-                </>
-              )}
-            </div>
-            <Divider className="divider" />
-            <div className="productDetails__size">
+                    {product?.newPrice && (
+                      <span className="productDetails__priceOldPrice">
+                        &#8358;3,725
+                      </span>
+                    )}
+                  </>
+                )}
+              </div>
+              <Divider className="divider" />
+              {/*<div className="productDetails__size">
               <div className="productSize__heading">
                 <p>Select Variation</p>
                 <p>Size guide</p>
@@ -99,24 +100,36 @@ const ProductDetails = ({ id }) => {
                 <div>4XL</div>
                 <div>5XL</div>
               </div>
+            </div>*/}
+              <div className="productDetails__addToCartBtn">
+                {!loading && (
+                  <Button
+                    variant="contained"
+                    startIcon={<AddShoppingCartIcon className="startIcon" />}
+                    className="buttonText"
+                    disabled={isLoading}
+                    onClick={() =>
+                      handleAddToCart(product?.id, 1, product?.name)
+                    }
+                  >
+                    {isLoading && (
+                      <CircularProgress size={30} className="buttonProgress" />
+                    )}
+                    Add to cart
+                  </Button>
+                )}
+              </div>
             </div>
-            <div className="productDetails__addToCartBtn">
-              {!loading && (
-                <Button
-                  variant="contained"
-                  startIcon={<AddShoppingCartIcon className="startIcon" />}
-                  className="buttonText"
-                  disabled={isLoading}
-                  onClick={() => handleAddToCart(product?.id, 1, product?.name)}
-                >
-                  {isLoading && (
-                    <CircularProgress size={30} className="buttonProgress" />
-                  )}
-                  Add to cart
-                </Button>
-              )}
+          </div>
+
+          <div className="product__description">
+            <div className="product__description__header">
+              <h1>Product details</h1>
             </div>
-            <Divider className="divider" />
+            <div
+              className="product__description__content"
+              dangerouslySetInnerHTML={{ __html: product?.description }}
+            />
           </div>
         </div>
         <div className="productDetails__right">
