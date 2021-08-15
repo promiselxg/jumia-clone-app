@@ -216,4 +216,6 @@
   left: "50%";
   margin-top: -15;
   margin-left: -15;
+  color: rgb(246, 136, 30) !important;
+  font-weight: 600;
 }

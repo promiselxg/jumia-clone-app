@@ -95,7 +95,7 @@ export const updateCartQty =
         },
       });
       // emit toast notification
-      toast.success(`Item Quantity Successfully Updated`, {
+      toast.success(`Item Quantity has been Updated`, {
         className: "toasting",
       });
       // add cart to local storage
@@ -110,3 +110,32 @@ export const updateCartQty =
       });
     }
   };
+
+export const removeFromCart = (product_id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: "REMOVE_ITEM_REQUEST",
+    });
+    const response = await commerce.cart.remove(product_id);
+    const { cart } = response;
+    dispatch({
+      type: "REMOVE_ITEM_SUCCESS",
+      payload: {
+        response: cart,
+      },
+    });
+    toast.success(`Product was removed from cart`, {
+      className: "toasting",
+    });
+    // add cart to local storage
+    localStorage.setItem(
+      "items_in_cart",
+      JSON.stringify(getState().shoppingCart.cart.response)
+    );
+  } catch (error) {
+    dispatch({
+      type: "REMOVE_ITEM_FAIL",
+      payload: error,
+    });
+  }
+};

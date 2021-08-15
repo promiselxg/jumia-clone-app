@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Slide, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { updateCartQty } from "../actions/productActions";
+import { removeFromCart, updateCartQty } from "../actions/productActions";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Cart = () => {
@@ -16,20 +16,29 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.shoppingCart);
   const { loading } = cartItems;
   const { response } = cartItems.cart;
-  // dispatch update cart qty action
+
+  // update item quantity
   const handleUpdateCartQty = async (product_id, qty) => {
     dispatch(updateCartQty(product_id, qty));
   };
+  //  Remove Item from cart
+  const handleRemoveCartItem = async (product_id) => {
+    dispatch(removeFromCart(product_id));
+  };
+
   useEffect(() => {
+    if (response.total_items === 0) {
+      console.log("Your cart is empty");
+    }
     window.scrollTo(0, 0);
-  }, []);
+  }, [response.total_items]);
 
   return (
     <>
       <div className="toast__notification">
         <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar={true}
           closeOnClick
           rtl={false}
@@ -83,7 +92,13 @@ const Cart = () => {
                                 <Button startIcon={<FavoriteBorder />}>
                                   move to saved items
                                 </Button>
-                                <Button startIcon={<Delete />}>remove</Button>
+                                <Button
+                                  startIcon={<Delete />}
+                                  disabled={loading}
+                                  onClick={() => handleRemoveCartItem(item?.id)}
+                                >
+                                  remove
+                                </Button>
                               </div>
                             </div>
                           </td>

@@ -67,9 +67,7 @@ const Header = () => {
                 <Link to="/cart/">
                   <IconButton aria-label="Show cart Items">
                     <Badge
-                      badgeContent={`${
-                        response && response.total_unique_items
-                      }`}
+                      badgeContent={`${response && response.total_items}`}
                       color="secondary"
                     >
                       <ShoppingCartOutlined />
